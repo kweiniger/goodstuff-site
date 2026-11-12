@@ -15,7 +15,7 @@ export default function App() {
             good things <em className="block">for real life.</em>
           </h1>
           <p className="max-w-[34ch] text-[clamp(1.0625rem,2vw,1.25rem)] leading-snug text-ink-soft">
-            tools that support real life instead of competing with it.
+            tools that support real life instead of competing with it. good stuff.
           </p>
         </div>
 
