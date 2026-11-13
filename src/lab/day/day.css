@@ -1,0 +1,88 @@
+/* a day: one column of an ordinary day; the page colour follows the visitor's clock */
+html[data-lab="day"] {
+  --day-bg: #f6f4ed;
+  --y-ink: #1f1c18;
+  background: var(--day-bg);
+  color: var(--y-ink);
+  transition: background-color .8s ease;
+}
+html[data-lab="day"][data-dark="1"] { --y-ink: #efeadf; }
+
+.y {
+  --y-soft: color-mix(in srgb, var(--y-ink) 58%, var(--day-bg));
+  --y-line: color-mix(in srgb, var(--y-ink) 22%, var(--day-bg));
+  color: var(--y-ink);
+  font-family: "Instrument Sans Variable", "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.45;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: clamp(24px, 5vw, 56px) 110px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: clamp(40px, 7vw, 80px);
+}
+.y a { color: inherit; text-decoration: none; }
+.y a:focus-visible, .y button:focus-visible, .y input:focus-visible { outline: 2px solid var(--y-ink); outline-offset: 4px; }
+.y p { margin: 0; }
+.y-soft { color: var(--y-soft); }
+
+.y-head { display: flex; justify-content: space-between; align-items: baseline; }
+.y-mark { font-weight: 600; letter-spacing: -0.01em; }
+.y-clock { font-family: "Instrument Serif", Georgia, serif; font-size: 22px; font-variant-numeric: tabular-nums; }
+
+.y-hero { display: grid; gap: 18px; }
+.y-hero h1 {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(46px, 8.4vw, 116px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  max-width: 13ch;
+  text-wrap: balance;
+}
+.y-hero p { font-size: clamp(18px, 2vw, 21px); max-width: 38ch; color: var(--y-soft); }
+
+.y-scrub { display: grid; gap: 10px; max-width: 560px; }
+.y-scrub label { font-size: 15px; }
+.y-scrub input { width: 100%; margin: 4px 0 0; appearance: none; background: transparent; height: 24px; cursor: grab; }
+.y-scrub input::-webkit-slider-runnable-track { height: 1px; background: var(--y-ink); }
+.y-scrub input::-moz-range-track { height: 1px; background: var(--y-ink); }
+.y-scrub input::-webkit-slider-thumb { appearance: none; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; background: var(--y-ink); border: 0; }
+.y-scrub input::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--y-ink); border: 0; }
+.y-ticks { display: flex; justify-content: space-between; font-size: 12px; color: var(--y-soft); font-variant-numeric: tabular-nums; margin-top: -6px; }
+.y-back { justify-self: start; font: inherit; font-size: 14px; color: inherit; background: none; border: 1px solid var(--y-line); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.y-back:hover { border-color: var(--y-ink); }
+
+.y-day { list-style: none; margin: 0; padding: 0; display: grid; }
+.y-m {
+  display: grid;
+  grid-template-columns: clamp(4.5rem, 12vw, 8rem) minmax(0, 1fr);
+  gap: clamp(12px, 3vw, 32px);
+  padding: 18px 0;
+  border-top: 1px solid var(--y-line);
+  transition: opacity .5s ease;
+}
+.y-time { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(26px, 3.4vw, 40px); line-height: 1; font-variant-numeric: tabular-nums; }
+.y-what { display: grid; gap: 12px; align-content: start; padding-top: 4px; }
+.y-what > p { font-size: clamp(17px, 1.8vw, 20px); max-width: 40ch; }
+.y-m.is-past { opacity: 0.55; }
+.y-m.is-past:hover, .y-m.is-past:focus-within { opacity: 1; }
+
+.y-tool { display: inline-grid; gap: 2px; justify-self: start; }
+.y-tool-name { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: clamp(36px, 5vw, 60px); line-height: 0.95; letter-spacing: -0.01em; }
+.y-tool-line { font-size: 15px; color: var(--y-soft); }
+.y-tool:hover .y-tool-name, .y-tool:focus-visible .y-tool-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.12em; }
+.y-tool:hover .y-tool-line, .y-tool:focus-visible .y-tool-line { color: var(--y-ink); }
+
+.y-now { display: grid; grid-template-columns: clamp(4.5rem, 12vw, 8rem) minmax(0, 1fr) auto; gap: clamp(12px, 3vw, 32px); align-items: center; padding: 6px 0; font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.y-now-rule { height: 2px; background: var(--y-ink); border-radius: 2px; }
+
+.y-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; color: var(--y-soft); font-size: 15px; border-top: 1px solid var(--y-line); padding-top: 18px; }
+.y-foot em { font-family: "Instrument Serif", Georgia, serif; font-size: 19px; color: var(--y-ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-lab="day"], .y-m { transition: none; }
+}
