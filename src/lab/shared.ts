@@ -7,6 +7,7 @@ export const directions = [
   { slug: "desktop", name: "index of /", line: "the site as a folder you can browse." },
   { slug: "day", name: "a day", line: "the tools placed inside an ordinary day." },
   { slug: "os", name: "goodstuff os", line: "a little desktop where every app works." },
+  { slug: "devices", name: "one thing each", line: "every app on its own little gadget." },
 ] as const;
 
 /** Per-page setup: title, keep experiments out of search, and a hook for page-level CSS. */

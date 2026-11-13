@@ -30,6 +30,7 @@ prototype directions live under `/lab`, separate from the homepage:
 - `/lab/desktop`: "index of /", a browsable folder
 - `/lab/day`: an ordinary day that follows your clock
 - `/lab/os`: goodstuff os, a little desktop where every icon opens a working toy app
+- `/lab/devices`: one thing each, every app on its own made-up gadget (pager, receipt printer, pocket radio)
 
 each one loads on its own (see `src/main.tsx`), so none of them add weight to the homepage. they're marked
 `noindex`. `vercel.json` rewrites `/lab/*` to the app. press `[` and `]` to flip between them.
