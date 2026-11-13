@@ -14,6 +14,7 @@ const labRoutes: Record<string, () => Promise<{ default: ComponentType }>> = {
   "/lab/day": () => import("./lab/day/Day.tsx"),
   "/lab/os": () => import("./lab/os/Os.tsx"),
   "/lab/devices": () => import("./lab/devices/Devices.tsx"),
+  "/lab/os2": () => import("./lab/os2/Os2.tsx"),
 };
 
 const path = window.location.pathname.replace(/\/+$/, "") || "/";

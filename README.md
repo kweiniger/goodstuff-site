@@ -31,6 +31,8 @@ prototype directions live under `/lab`, separate from the homepage:
 - `/lab/day`: an ordinary day that follows your clock
 - `/lab/os`: goodstuff os, a little desktop where every icon opens a working toy app
 - `/lab/devices`: one thing each, every app on its own made-up gadget (pager, receipt printer, pocket radio)
+- `/lab/os2`: goodstuff os 2, a softer desktop with a dock, draggable icons and windows, mini apps and secrets.
+  to add a mini app or game, write a component in `src/lab/os2/apps/` and add one line to `src/lab/os2/registry.tsx`.
 
 each one loads on its own (see `src/main.tsx`), so none of them add weight to the homepage. they're marked
 `noindex`. `vercel.json` rewrites `/lab/*` to the app. press `[` and `]` to flip between them.
